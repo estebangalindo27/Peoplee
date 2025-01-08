@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:People.ViewModels"
+             x:Class="People.MainPage"
+             BackgroundColor="{DynamicResource Light}">
+
+	<ContentPage.BindingContext>
+		<vm:MainPageViewModel />
+	</ContentPage.BindingContext>
+
+	<ScrollView>
+		<StackLayout Padding="10" Spacing="20">
+
+
+			<Frame BackgroundColor="#D8E3E7" CornerRadius="15" Padding="10" HasShadow="True">
+				<Grid ColumnDefinitions="Auto, *" VerticalOptions="Center">
+
+					<Image Source="your_photo.jpg"
+                           WidthRequest="80"
+                           HeightRequest="80"
+                           Aspect="AspectFill"
+                           HorizontalOptions="Start" />
+
+
+					<StackLayout Grid.Column="1" Padding="10" VerticalOptions="Center">
+						<Label Text="Esteban Galindo"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="Black" />
+						<Label Text="Edad: 22 años"
+                               FontSize="16"
+                               TextColor="Gray" />
+					</StackLayout>
+				</Grid>
+			</Frame>
+
+			<!-- Campo para ingresar un nombre -->
+			<Entry x:Name="estebangalindo_entryNewPerson"
+                   Placeholder="Enter name"
+                   Text="{Binding NewPersonName}" />
+
+			<!-- Botón para agregar una persona -->
+			<Button x:Name="estebangalindo_btnAddPerson"
+                    Text="Add Person"
+                    Command="{Binding AddPersonCommand}" />
+
+			<!-- Mensaje de estado -->
+			<Label x:Name="estebangalindo_statusMessage"
+                   TextColor="{StaticResource Primary}"
+                   Text="{Binding StatusMessage}" />
+
+			<!-- Botón para obtener todas las personas -->
+			<Button x:Name="estebangalindo_btnGetPeople"
+                    Text="Get All People"
+                    Command="{Binding GetPeopleCommand}" />
+
+			<!-- ListView para mostrar la lista de personas -->
+			<ListView x:Name="estebangalindo_listPeople"
+                      ItemsSource="{Binding People}"
+                      ItemTapped="OnPersonTapped"
+                      HasUnevenRows="True">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Grid ColumnDefinitions="*,2*">
+								<Label Text="{Binding Id}" TextColor="{StaticResource Primary}" />
+								<Label Grid.Column="1" Text="{Binding Name}" TextColor="{StaticResource Primary}" />
+							</Grid>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+
+		</StackLayout>
+	</ScrollView>
+
+</ContentPage>
