@@ -22,18 +22,16 @@ public class PersonRepository
         await conn.CreateTableAsync<Person>();
     }
 
-
-
     public PersonRepository(string dbPath)
     {
-        _dbPath = dbPath;                        
+        _dbPath = dbPath;
     }
 
     public async Task AddNewPerson(string name)
     {
         int result = 0;
         try
-
+        {
             await Init();
 
             if (string.IsNullOrEmpty(name))
@@ -41,7 +39,7 @@ public class PersonRepository
 
             result = await conn.InsertAsync(new Person { Name = name });
 
-            StatusMessage = string.Format("{0} record(s) added [Name: {1})", result, name);
+            StatusMessage = string.Format("{0} record(s) added [Name: {1}]", result, name);
         }
         catch (Exception ex)
         {

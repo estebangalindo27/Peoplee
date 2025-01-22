@@ -1,7 +1,6 @@
-﻿namespace People;
-using People.ViewModels;
-using People.Models;
-
+﻿namespace Peoplee;
+using Peoplee.ViewModels;
+using Peoplee.Models;
 
 public partial class MainPage : ContentPage
 {

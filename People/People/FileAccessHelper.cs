@@ -1,4 +1,4 @@
-﻿namespace People;
+﻿namespace Peoplee;
 
 public class FileAccessHelper
 {

@@ -3,9 +3,9 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using People.Models;
+using Peoplee.Models;
 
-namespace People.ViewModels;
+namespace Peoplee.ViewModels;
 
 public class MainPageViewModel : INotifyPropertyChanged
 {
@@ -38,7 +38,7 @@ public class MainPageViewModel : INotifyPropertyChanged
         try
         {
             await App.PersonRepo.AddNewPerson(name);
-            StatusMessage = $"Mateo Pillajo acaba de agregar un nuevo registro: {name}.";
+            StatusMessage = $"Esteban Galindo acaba de agregar un nuevo registro: {name}.";
             await LoadPeople();
         }
         catch (Exception ex)
@@ -52,7 +52,7 @@ public class MainPageViewModel : INotifyPropertyChanged
         try
         {
             await App.PersonRepo.DeletePerson(person.Id);
-            StatusMessage = $"Mateo Pillajo acaba de eliminar un registro.";
+            StatusMessage = $"Esteban Galindo acaba de eliminar un registro.";
             await LoadPeople();
         }
         catch (Exception ex)

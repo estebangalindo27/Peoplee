@@ -1,18 +1,17 @@
-﻿namespace People;
+﻿namespace Peoplee;
 
 public partial class App : Application
 {
-	public static PersonRepository PersonRepo { get; private set; }
+    public static PersonRepository PersonRepo { get; private set; }
 
-	public App(PersonRepository repo)
-	{
-		InitializeComponent();
+    public App(PersonRepository repo)
+    {
+        InitializeComponent();
         PersonRepo = repo;
-
     }
 
-	protected override Window CreateWindow(IActivationState activationState)
-	{
-		return new Window(new AppShell());
-	}
+    protected override Window CreateWindow(IActivationState activationState)
+    {
+        return new Window(new AppShell());
+    }
 }
